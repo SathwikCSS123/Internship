@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset and Fonts */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            width: 850px;
+            max-width: 100%;
+            height: 550px;
+            background-color: #fff;
+            border: 6px solid #512da8;
+            border-radius: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Form Container for Admin and User Sections */
+        .form-container {
+            width: 50%;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s ease;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-container button {
+            background-color: #512da8;
+            color: #fff;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container button:hover {
+            background-color: #5c6bc0;
+        }
+
+        /* Left Section (User) */
+        .user-container {
+            background-color: #f3f4f6;
+            border-right: 2px solid #ddd;
+        }
+
+        /* Right Section (Admin) */
+        .admin-container {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User View -->
+        <div class="form-container user-container">
+            <h2>User Access</h2>
+            <button id="login" onclick="window.location.href='user-index.html'">Go to User</button>
+        </div>
+
+        <!-- Admin View -->
+        <div class="form-container admin-container">
+            <h2>Admin Access</h2>
+            <!-- Changed redirect link to 'user-index.html' -->
+            <button id="register" onclick="window.location.href='admin-index.html'">Go to Admin</button>
+        </div>
+    </div>
+</body>
+</html>
