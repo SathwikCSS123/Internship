@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <style>
+        body {
+            background-color: #3b82f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .bg-container {
+            background-color: black;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            width: 1200px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+        }
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+        .container {
+            background-color: #18181b;
+            padding: 20px;
+            align-self: center;
+            text-align: center;
+            color: white;
+            width: 700px;
+        }
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        select {
+            background-color: #808080;
+            color: black;
+        }
+        .submit-btn {
+            background-color: #2563eb;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100px;
+        }
+        .submit-btn:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.png" alt="Mani Cable Network Logo" class="logo">
+    </div>
+    <div class="bg-container">
+        <div class="container" id="page1">
+            <h2>New Customer Form 1</h2>
+            <input type="text" id="boxid" placeholder="Box ID" required>
+            <input type="text" id="name" placeholder="Name" required>
+            <select id="area" required>
+                <option value="">Select Area</option>
+                <option value="Area1">Area 1</option>
+                <option value="Area2">Area 2</option>
+                <option value="Area3">Area 3</option>
+                <option value="Area4">Area 4</option>
+            </select>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="text" id="username" placeholder="User Name" required>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <button class="submit-btn" onclick="goToPage2()">Submit</button>
+        </div>
+
+        <div class="container" id="page2" style="display: none;">
+            <h2>New Customer Form 2</h2>
+            <input type="text" id="boxid2" disabled>
+            <select id="package" required>
+                <option value="">Select Package</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Hindi">Hindi</option>
+                <option value="English">English</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Malayalam">Malayalam</option>
+            </select>
+            <select id="month" required>
+                <option value="">Select Month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <input type="date" id="date" required>
+            <input type="text" id="amount" placeholder="Amount" required>
+            <input type="text" id="due" placeholder="Due" required><br>
+            <button class="submit-btn" onclick="goToPage3()">Submit</button>
+        </div>
+
+        <script>
+            function goToPage2() {
+                document.getElementById("page1").style.display = "none";
+                document.getElementById("page2").style.display = "block";
+                document.getElementById("boxid2").value = document.getElementById("boxid").value;
+            }
+
+            function goToPage3() {
+                const customerData = {
+                    boxid: document.getElementById("boxid2").value,
+                    name: document.getElementById("name").value,
+                    area: document.getElementById("area").value,
+                    phone: document.getElementById("phone").value,
+                    package: document.getElementById("package").value,
+                    month: document.getElementById("month").value,
+                    date: document.getElementById("date").value,
+                    amount: document.getElementById("amount").value,
+                    due: document.getElementById("due").value
+                };
+
+                localStorage.setItem("customerData", JSON.stringify(customerData));
+                window.location.href = "request.html"; // Redirect to request.html
+            }
+        </script>
+    </div>
+</body>
+</html>
